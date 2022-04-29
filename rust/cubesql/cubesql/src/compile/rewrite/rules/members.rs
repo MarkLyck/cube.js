@@ -28,7 +28,7 @@ use crate::compile::rewrite::{
     aggr_group_expr_empty_tail, aggregate, alias_expr, column_alias_replacer,
     column_name_to_member_name, cube_scan_members_empty_tail, expr_column_name,
     expr_column_name_with_relation, fun_expr, limit, member_replacer, projection, projection_expr,
-    projection_expr_empty_tail, sort_expr, udaf_expr, WithColumnRelation,
+    projection_expr_empty_tail, udaf_expr, WithColumnRelation,
 };
 use crate::compile::rewrite::{
     binary_expr, column_expr, cube_scan, literal_expr, rewrite, transforming_rewrite,
@@ -511,12 +511,6 @@ impl RewriteRules for MemberRules {
                 "alias-replacer-tail",
                 column_alias_replacer(cube_scan_members_empty_tail(), "?aliases", "?cube"),
                 cube_scan_members_empty_tail(),
-            ),
-            transforming_rewrite(
-                "sort-expr-column-name",
-                sort_expr("?expr", "?asc", "?nulls_first"),
-                sort_expr("?alias", "?asc", "?nulls_first"),
-                Self::transform_original_expr_alias("?expr", "?alias"),
             ),
             rewrite(
                 "binary-expr-addition-assoc",
