@@ -1,0 +1,61 @@
+---
+source: cubesql/src/compile/mod.rs
+expression: "execute_query(\"\n                SELECT format_type(t.oid, t.typtypmod) f\n                FROM pg_catalog.pg_type t;\n                \".to_string(),\n            DatabaseProtocol::PostgreSQL).await?"
+---
++-----------------------------------+
+| f                                 |
++-----------------------------------+
+| ???                               |
+| ???                               |
+| name                              |
+| ???                               |
+| ???                               |
+| integer                           |
+| ???                               |
+| ???                               |
+| ???                               |
+| ???                               |
+| ???                               |
+| ???                               |
+| ???                               |
+| ???                               |
+| ???                               |
+| ???                               |
+| ???                               |
+| ???                               |
+| ???                               |
+| ???                               |
+| ???                               |
+| ???                               |
+| character varying                 |
+| ???                               |
+| ???                               |
+| ???                               |
+| timestamp with time zone          |
+| ???                               |
+| ???                               |
+| ???                               |
+| ???                               |
+| ???                               |
+| ???                               |
+| ???                               |
+| ???                               |
+| ???                               |
+| ???                               |
+| ???                               |
+| ???                               |
+| ???                               |
+| ???                               |
+| ???                               |
+| ???                               |
+| ???                               |
+| ???                               |
+| ???                               |
+| ???                               |
+| information_schema.character_data |
+| information_schema.sql_identifier |
+| ???                               |
+| ???                               |
+| ???                               |
+| ???                               |
++-----------------------------------+
